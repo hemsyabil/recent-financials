@@ -1,16 +1,20 @@
-from os import name
 from flask import Flask, render_template, jsonify
-from access_data import DATA_JSON
+from access_data import DATA_JSON, filtered_data, total_i_owe_all
+import humanize
 
 finance_app = Flask(__name__)
 
 
 @finance_app.route('/')
-def recent_financials():
+def dashboard():
+    total_owed = humanize.intcomma(int(total_i_owe_all))
+
     return render_template('index.html',
                            title="Recent Financials - Dashboard",
                            name="dashboard",
-                           DATA_DICT=DATA_JSON)
+                           DATA_DICT=DATA_JSON,
+                           filtered_data=filtered_data,
+                           total_owed=total_owed)
 
 
 @finance_app.route('/api/financials')
