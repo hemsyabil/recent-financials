@@ -2,7 +2,11 @@
 {% block content %} 
 
 <div class="container">
-    <h1>Hello, this is index page.</h1>
+    <p>
+        {% for data in DATA_DICT %}
+            <p>{{ data }}</p>
+        {% endfor %}
+    </p>
 </div>
 
 {% endblock content %}
