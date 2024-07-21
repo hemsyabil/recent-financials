@@ -5,15 +5,23 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-main">
     <div class="container">
         <a class="navbar-brand" href="#">Recent Financials</a>
-        <span>Total Owed: {{ total_owed }}</span>
+        <span class="total-owed">Total Owed: ${{ total_owed }}</span>
     </div>
 </nav>
 
 <div class="container">
-    <h1>Big graph will go here</h1>
+    <div class="graph-todo">TODO: Big graph will go here</div>
 </div>
 
 <div class="container footer">
+    {% for name in filtered_data %}
+    <div class="footer-box">
+        <div class="name">{{ name }}</div>
+        <div>Total I Paid: <span>${{ filtered_data[name]["Total I Paid"] }}</span></div>
+        <div>Total He/She Paid: <span>${{ filtered_data[name]["Total He/She Paid"] }}</span></div>
+        <div>Total I Owe: <span>${{ filtered_data[name]["Total I Owe"] }}</span></div>
+    </div>
+    {% endfor %}
 
 </div>
 

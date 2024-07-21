@@ -1,3 +1,73 @@
+/* Google Font Link */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+    --jet-color: #333333;
+    --turquoise-color: #48E5C2;
+    --seasalt-color: #FCFAF9;
+    --desert-sand-color: #F3D3BD;
+    --davys-gray-color: #5E5E5E;
+    --highlight-color: #F66247;
+
+    --box-shadow:  rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 12px;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Header */
 .navbar-main {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    box-shadow: var(--box-shadow);
+}
+.navbar-main .navbar-brand {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--jet-color);
+}
+.navbar-main .total-owed {
+    font-size: 20px;
+    color: var(--highlight-color);
+    font-weight: 600;
+}
+
+/* TODO */
+.graph-todo {
+    height: 300px;
+    widows: 100%;
+    text-align: center;
+    line-height: 300px;
+    color: var(--turquoise-color);
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+.footer .footer-box {
+    width: 250px;
+    margin: 20px;
+    box-shadow: var(--box-shadow);
+    padding: 10px;
+}
+.footer .footer-box .name {
+    font-size: 18px;
+    font-weight: 600;
+}
+.footer .footer-box > div > span {
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 500px) {
+    .footer .footer-box {
+        width: 100%;
+    }
 }
