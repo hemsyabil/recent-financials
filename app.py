@@ -8,13 +8,15 @@ finance_app = Flask(__name__)
 @finance_app.route('/')
 def dashboard():
     total_owed = humanize.intcomma(int(total_i_owe_all))
+    total_transactions = 0
 
-    return render_template('index.html',
+    return render_template('dashboard.html',
                            title="Recent Financials - Dashboard",
                            name="dashboard",
                            DATA_DICT=DATA_JSON,
                            filtered_data=filtered_data,
-                           total_owed=total_owed)
+                           total_owed=total_owed,
+                           total_tr=total_transactions)
 
 
 @finance_app.route('/api/financials')

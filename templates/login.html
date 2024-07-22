@@ -1,6 +1,9 @@
 {% include 'base/base.html' %}
-{% block content %} 
 
+<!-- Nav bar -->
+{% include 'base/navbar.html' %}
+
+{% block content %} 
 <div class="container">
     <h2>Login</h2>
     {% if error %}
@@ -12,5 +15,7 @@
         <button type="submit">Login</button>
     </form>
 </div>
-
 {% endblock content %}
+
+<!-- Footer -->
+{% include 'base/footer.html' %}
