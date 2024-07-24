@@ -1,7 +1,7 @@
 {% include 'base/base.html' %}
 
 <!-- Nav bar -->
-{% include 'base/navbar.html' %}
+{% include 'modules/navbar.html' %}
 
 {% block content %} 
 <div class="container">
@@ -10,14 +10,18 @@
 
 <div class="container base-tiles">
     {% for name in filtered_data %}
-    {% if filtered_data[name]["Total I Owe"] != 0 %}
-    <div class="base-tiles-box">
-        <div class="name">{{ name }}</div>
-        <div>Total I Paid: <span>${{ filtered_data[name]["Total I Paid"] }}</span></div>
-        <div>Total He/She Paid: <span>${{ filtered_data[name]["Total He/She Paid"] }}</span></div>
-        <div>Total I Owe: <span>${{ filtered_data[name]["Total I Owe"] }}</span></div>
-    </div>
-    {% endif %}
+        {% if filtered_data[name]["Total I Owe"] != 0 %}
+            {% set link_name = name.replace(' ', '-').lower() %}
+            <a href="{{ link_name }}">
+                <div class="base-tiles-box">
+                    <div class="name">{{ name }}</div><hr>
+                    <div>Total I Paid: <span>${{ filtered_data[name]["Total I Paid"] }}</span></div>
+                    <div>Total He/She Paid: <span>${{ filtered_data[name]["Total He/She Paid"] }}</span></div>
+                    <div>Total I Owe: <span>${{ filtered_data[name]["Total I Owe"] }}</span></div>
+                    <div>Total Transactions #: <span>{{ filtered_data[name]["Total Tr"] }}</span></div>
+                </div>
+            </a>
+        {% endif %}
     {% endfor %}
 
 </div>
@@ -25,4 +29,4 @@
 {% endblock content %}
 
 <!-- Footer -->
-{% include 'base/footer.html' %}
+{% include 'modules/footer.html' %}

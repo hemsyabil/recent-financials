@@ -33,6 +33,11 @@ for sheet_name in excel_data.sheet_names:
     # Convert the DataFrame to a dictionary and add it to the data dictionary
     DATA_JSON[sheet_name] = sheet_data.to_dict(orient='records')
 
+name_mapping = {
+    sheet_name.replace(' ', '-').lower(): sheet_name
+    for sheet_name in DATA_JSON.keys()
+}
+
 # Initialize the filtered_data dictionary
 filtered_data = {}
 total_i_owe_all = 0
@@ -68,6 +73,7 @@ for person, transactions in DATA_JSON.items():
         "Total I Paid": round(total_i_paid, 2),
         "Total He/She Paid": round(total_he_paid, 2),
         "Total I Owe": round(total_i_owe, 2),
+        "Total Tr": len(transactions),
         "Payment Methods": {
             method: {
                 "Count": info["count"],
@@ -78,4 +84,3 @@ for person, transactions in DATA_JSON.items():
     }
 
 total_i_owe_all = round(total_i_owe_all, 2)
-

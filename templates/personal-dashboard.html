@@ -1,0 +1,27 @@
+{% include 'base/base.html' %}
+
+<!-- Nav bar -->
+{% include 'modules/navbar.html' %}
+
+{% block content %}
+<div class="container table-head">
+    <h3>Key Matrices</h3>
+    <div class="personal-tiles">
+        <div>Total I Paid: <span>${{ filtered_data[name]["Total I Paid"] }}</span></div>
+        <div>Total He/She Paid: <span>${{ filtered_data[name]["Total He/She Paid"] }}</span></div>
+        <div>Total I Owe: <span>${{ filtered_data[name]["Total I Owe"] }}</span></div>
+        <div>Total Transactions #: <span>{{ filtered_data[name]["Total Tr"] }}</span></div>
+    </div>
+</div>
+
+<div class="container table-head">
+    <h3>Detail Transactions</h3>
+</div>
+
+<div class="container">
+    {{ table|safe }}
+</div>
+{% endblock content %}
+
+<!-- Footer -->
+{% include 'modules/footer.html' %}
