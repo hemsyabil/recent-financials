@@ -5,20 +5,22 @@
   <div class="login-form">
     <div class="login-form-header">
       <i class="icon-user"></i>
-      <p>Have an account?</p>
+      <p>Sign Up</p>
     </div>
-    
-    <form action="{{ url_for('login') }}" method="POST">
+
+    <form action="{{ url_for('register') }}" method="POST">
       <div class="login-form-content">
+        <input type="text" id="name" name="name" placeholder="Full Name" required>
         <input type="email" id="email" name="email" placeholder="Email Address" required>
         <input type="password" id="password" name="password" placeholder="Password" required>
-        <span><button type="submit">Login</button></span>
+        <span><button type="submit">Get Started</button></span>
       </div>
     </form>
 
     <div class="login-form-footer">
-      Don't have an account? <span><a href="{{ url_for('register') }}">Register Now</a></span>
+      Have an account? <span><a href="{{ url_for('login') }}">Login</a></span>
     </div>
   </div>
 </div>
 {% endblock content %}
+
